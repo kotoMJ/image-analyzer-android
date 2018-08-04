@@ -1,0 +1,32 @@
+apply from: "../module-feature-core/library.gradle"
+
+android {
+
+	defaultConfig {
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+	}
+
+	flavorDimensions "env"
+
+	productFlavors {
+		mock {
+			dimension = "env"
+		}
+
+		dev {
+			dimension = "env"
+		}
+
+		production {
+			dimension = "env"
+		}
+	}
+
+}
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+	testImplementation "junit:junit:$junit_version"
+}

@@ -1,0 +1,177 @@
+/**
+ * Contains directories for mocking responses (should be in all tests + mock version of app)
+ */
+def mock_files = ['src/mock/resources', '../mock_data/configs', '../mock_data/responses']
+
+allprojects {
+	apply plugin: 'kotlin-kapt'
+	apply plugin: 'kotlin-android'
+	apply plugin: 'kotlin-android-extensions'
+	apply plugin: 'kotlin-allopen'
+
+	allOpen {
+		annotation('com.legalzoom.kollaborate.base.OpenForMocking')
+	}
+
+	kapt {
+		useBuildCache = true
+		correctErrorTypes = true // avoid unknown type replacing with NonExistentClass
+	}
+
+	androidExtensions {
+		experimental = true
+	}
+
+	android {
+		compileOptions {
+			sourceCompatibility JavaVersion.VERSION_1_8
+			targetCompatibility JavaVersion.VERSION_1_8
+		}
+
+		compileSdkVersion sdk_version
+		buildToolsVersion build_tools_version
+		dataBinding.enabled = true
+		flavorDimensions "env"
+
+		defaultConfig {
+			minSdkVersion min_sdk_version
+			targetSdkVersion sdk_version
+			testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+			vectorDrawables.useSupportLibrary = true
+		}
+
+		sourceSets {
+			dev {
+				java.srcDirs += 'src/server/java'
+			}
+			production {
+				java.srcDirs += 'src/server/java'
+			}
+			mock {
+				java.srcDirs += 'src/mock/java'
+				resources.srcDirs += mock_files
+			}
+			test {
+				resources.srcDirs += mock_files
+			}
+		}
+
+		buildTypes {
+			debug {
+				buildConfigField "boolean", "LOGS", "true"
+			}
+
+			release {
+				buildConfigField "boolean", "LOGS", "false"
+
+				zipAlignEnabled true
+				minifyEnabled true
+
+				proguardFile '../proguard-rules/proguard-square-retrofit2.pro'
+				proguardFile '../proguard-rules/proguard-square-leakcanary.pro'
+				proguardFile '../proguard-rules/proguard-square-okio.pro'
+				proguardFile '../proguard-rules/proguard-glide.pro'
+				proguardFile '../proguard-rules/proguard-gson.pro'
+				proguardFile '../proguard-rules/proguard-square-okhttp3.pro'
+				proguardFile '../proguard-rules/proguard-support-design.pro'
+				proguardFile '../proguard-rules/proguard-support-v7-appcompat.pro'
+				proguardFile '../proguard-rules/proguard-support-v7-cardview.pro'
+				proguardFile '../proguard-rules/proguard-realm.pro'
+				proguardFile '../proguard-rules/proguard-reactive.pro'
+				proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			}
+		}
+
+		testOptions {
+			unitTests.returnDefaultValues = true
+
+			unitTests.all {
+				testLogging {
+					events "passed", "skipped", "failed", "standardOut", "standardError"
+					outputs.upToDateWhen {false}
+					showStandardStreams = true
+				}
+				maxParallelForks = 8
+			}
+		}
+
+		configurations.all {
+			resolutionStrategy {
+				force "com.android.support:support-v4:$android_support_version"
+				force "com.android.support:appcompat-v7:$android_support_version"
+				force "com.android.support:cardview-v7:$android_support_version"
+				force "com.android.support:design:$android_support_version"
+				force "com.android.support:recyclerview-v7:$android_support_version"
+				force "com.android.support:gridlayout-v7:$android_support_version"
+				force "com.android.support:customtabs:$android_support_version"
+			}
+		}
+	}
+
+	/**
+	 * Every subproject will have these dependencies
+	 * [all kapts] 	- because it's generating per module :(
+	 * [tests] 		- becasuse dependencies in tests don't work :(
+	 */
+	dependencies {
+
+		// Kotlin
+		implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+		// Dagger
+		kapt "com.google.dagger:dagger-compiler:$dagger_version"
+		kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+		// AndroidJUnitRunner and JUnit Rules
+		androidTestImplementation "com.android.support.test:runner:$android_support_test_version"
+		androidTestImplementation "com.android.support.test:rules:$android_support_test_version"
+
+		/**
+		 *  UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST
+		 */
+		androidTestImplementation "org.mockito:mockito-android:$mockito_version"
+
+		// Espresso core
+		androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
+		// Espresso-contrib for DatePicker, RecyclerView, Drawer actions, Accessibility checks, CountingIdlingResource
+		androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espresso_version"
+		androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espresso_version"
+		androidTestImplementation "com.android.support:support-annotations:$android_support_version"
+
+		//testImplementation project(':module-feature-core-test')
+	}
+}
+
+task askForPasswords << {
+	def storePass
+	def keyAlias
+	def keyPass
+
+	def keystorePropertiesFile = new File((String) project.property("keystore.properties"))
+
+	if (project.hasProperty("keystore.properties") && keystorePropertiesFile.exists()) {
+		println "Loading keystore passwords from property file..."
+		Properties properties = new Properties()
+		properties.load(new FileInputStream(keystorePropertiesFile))
+		storePass = properties['keystore.store.password']
+		keyAlias = properties['keystore.key.alias']
+		keyPass = properties['keystore.key.password']
+	} else {
+		println "Getting keystore passwords from user input..."
+		storePass = new String(System.console().readPassword("\nStore password: "))
+		keyAlias = new String(System.console().readLine("Key alias: "))
+		keyPass = new String(System.console().readPassword("Key password: "))
+	}
+
+	android.signingConfigs.release.storePassword = storePass
+	android.signingConfigs.release.keyAlias = keyAlias
+	android.signingConfigs.release.keyPassword = keyPass
+}
+
+ext.renameArtifact = {variant, apkName ->
+	variant.outputs.all {
+		output ->
+			def date = new Date().format('yyyyMMdd')
+			outputFileName = "${apkName}-${project.name}-${variant.versionName}-${variant.versionCode}-${date}-${variant.name}.apk"
+	}
+}
