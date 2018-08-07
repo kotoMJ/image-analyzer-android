@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.coverage
+package com.example.android.feature1
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -37,6 +37,7 @@ class FlowStepFragment : Fragment() {
 		//val step = arguments?.getInt("step")
 
 		val step = arguments?.let {
+
 			val safeArgs = FlowStepFragmentArgs.fromBundle(it)
 			safeArgs.step
 		}
@@ -50,8 +51,19 @@ class FlowStepFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		view.findViewById<View>(R.id.next_button).setOnClickListener(
-			Navigation.createNavigateOnClickListener(R.id.next_action)
-		)
+		arguments?.let {
+
+			when (FlowStepFragmentArgs.fromBundle(it).step) {
+				2 -> {
+					//TODO tell somehow to parent component to navigate home
+				}
+				else -> {
+					view.findViewById<View>(R.id.next_button).setOnClickListener(
+						Navigation.createNavigateOnClickListener(R.id.next_action)
+					)
+				}
+			}
+		}
+
 	}
 }

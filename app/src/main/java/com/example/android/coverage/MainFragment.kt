@@ -53,7 +53,7 @@ class MainFragment : Fragment() {
 			.build()
 
 		view.findViewById<Button>(R.id.navigate_dest_bt)?.setOnClickListener {
-			findNavController(it).navigate(R.id.flow_step_one, null, options)
+			findNavController(it).navigate(R.id.feature_1_navigation, null, options)
 		}
 		view.findViewById<Button>(R.id.navigate_action_bt)?.setOnClickListener(
 			Navigation.createNavigateOnClickListener(R.id.next_action, null)

@@ -7,22 +7,6 @@ android {
 
 	}
 
-	flavorDimensions "env"
-
-	productFlavors {
-		mock {
-			dimension = "env"
-		}
-
-		dev {
-			dimension = "env"
-		}
-
-		production {
-			dimension = "env"
-		}
-	}
-
 }
 
 dependencies {

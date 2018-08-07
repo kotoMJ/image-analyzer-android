@@ -11,10 +11,15 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/mobile_navigation"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	app:startDestination="@+id/launcher_home">
+	app:startDestination="@id/launcher_home">
+
+	<include app:graph="@navigation/feature_1_navigation" />
+
 	<fragment
 		android:id="@+id/launcher_home"
 		android:name="com.example.android.coverage.MainFragment"
@@ -23,7 +28,7 @@
 
 		<action
 			android:id="@+id/next_action"
-			app:destination="@+id/flow_step_one"
+			app:destination="@id/feature_1_navigation"
 			app:enterAnim="@anim/slide_in_right"
 			app:exitAnim="@anim/slide_out_left"
 			app:popEnterAnim="@anim/slide_in_left"
@@ -31,42 +36,16 @@
 
 	</fragment>
 
-	<fragment
-		android:id="@+id/flow_step_one"
-		android:name="com.example.android.coverage.FlowStepFragment"
-		tools:layout="@layout/flow_step_one_fragment">
-		<argument
-			android:name="step"
-			android:defaultValue="1"
-			argType="integer" />
-
-		<action
-			android:id="@+id/next_action"
-			app:destination="@+id/flow_step_two">
-		</action>
-	</fragment>
-
-	<fragment
-		android:id="@+id/flow_step_two"
-		android:name="com.example.android.coverage.FlowStepFragment"
-		tools:layout="@layout/flow_step_two_fragment">
-
-		<argument
-			android:name="step"
-			android:defaultValue="2"
-			argType="integer" />
-
-		<action
-			android:id="@+id/next_action"
-			app:popUpTo="@id/launcher_home">
-		</action>
-	</fragment>
 
 	<fragment
 		android:id="@+id/settings_fragment"
 		android:name="com.example.android.coverage.SettingsFragment"
 		android:label="fragment_settings"
-		tools:layout="@layout/fragment_settings" />
+		tools:layout="@layout/fragment_settings">
+		<argument
+			android:name="setargs"
+			android:defaultValue="Android!" />
+	</fragment>
 
 	<fragment
 		android:id="@+id/android"
