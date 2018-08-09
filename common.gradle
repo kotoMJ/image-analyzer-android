@@ -128,8 +128,11 @@ allprojects {
 		implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 		// Common Dagger
-		kapt "com.google.dagger:dagger-compiler:$dagger_version"
-		kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+		//kapt "com.google.dagger:dagger-compiler:$dagger_version"
+		//kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+		//Logging
+		implementation 'com.jakewharton.timber:timber:4.7.1'
 
 		// Common AndroidJUnitRunner and JUnit Rules
 		androidTestImplementation "com.android.support.test:runner:$android_support_test_version"

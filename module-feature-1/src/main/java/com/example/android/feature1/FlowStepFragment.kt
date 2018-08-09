@@ -22,6 +22,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import com.example.android.core.FeatureCore
 
 /**
  * Presents how multiple steps flow could be implemented.
@@ -51,11 +52,11 @@ class FlowStepFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		arguments?.let {
+		arguments?.let { it ->
 
 			when (FlowStepFragmentArgs.fromBundle(it).step) {
 				2 -> {
-					//TODO tell somehow to parent component to navigate home
+					view.findViewById<View>(R.id.next_button).setOnClickListener { FeatureCore.applicationInterface.navigateHome() }
 				}
 				else -> {
 					view.findViewById<View>(R.id.next_button).setOnClickListener(

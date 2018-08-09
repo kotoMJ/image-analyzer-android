@@ -28,4 +28,7 @@ android {
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+	// Arch
+	api "android.arch.lifecycle:extensions:$android_arch_version"
+	kapt "android.arch.lifecycle:compiler:$android_arch_version"
 }

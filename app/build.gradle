@@ -86,7 +86,6 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$android_support_version"
     implementation "com.android.support.constraint:constraint-layout:$android_constraint_layout_version"
 
-
     implementation("com.crashlytics.sdk.android:crashlytics:$crashlytics_version") {
         transitive = true;
     }
