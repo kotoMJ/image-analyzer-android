@@ -17,7 +17,6 @@
 package com.example.android.coverage
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -27,11 +26,12 @@ import android.widget.Button
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
+import com.example.android.core.arch.BaseFragment
 
 /**
  * Fragment used to show how to navigate to another destination
  */
-class MainFragment : Fragment() {
+class MainFragment : BaseFragment() {
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?): View? {
 		setHasOptionsMenu(true)

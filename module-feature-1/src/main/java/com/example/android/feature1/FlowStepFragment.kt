@@ -23,11 +23,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.android.core.FeatureCore
+import com.example.android.core.di.Injectable
 
 /**
  * Presents how multiple steps flow could be implemented.
  */
-class FlowStepFragment : Fragment() {
+class FlowStepFragment : Fragment(), Injectable {
+
+//
+//	@Inject
+//	lateinit var application: Application
+
 
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
@@ -52,6 +58,7 @@ class FlowStepFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
+		//Timber.d(">>>${application.baseContext}")
 		arguments?.let { it ->
 
 			when (FlowStepFragmentArgs.fromBundle(it).step) {
