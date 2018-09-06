@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.coverage
+package com.example.android.coverage.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -27,6 +27,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import com.example.android.core.arch.BaseFragment
+import com.example.android.coverage.R
 
 /**
  * Fragment used to show how to navigate to another destination

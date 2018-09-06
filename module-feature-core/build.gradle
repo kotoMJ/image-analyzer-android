@@ -32,6 +32,9 @@ dependencies {
 	api "android.arch.lifecycle:extensions:$android_arch_version"
 	kapt "android.arch.lifecycle:compiler:$android_arch_version"
 
+	api "com.android.databinding:library:$android_gradle_version"
+	api "com.android.databinding:adapters:$android_gradle_version"
+
 	// Dagger (extended dependency on top of minimal dependency from common.gradle)
 	api "com.google.dagger:dagger:$dagger_version"
 	api "com.google.dagger:dagger-android:$dagger_version"

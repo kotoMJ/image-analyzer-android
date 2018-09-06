@@ -13,10 +13,10 @@ open class PreferencesCore @Inject constructor(
 		private const val PREFS_SAMPLE_TOKEN = "prefs_sample_token"
 	}
 
-	open var sampleToken: Long
-		get() = sharedPreferences.getLong(PREFS_SAMPLE_TOKEN, -1)
+	open var sampleToken: String
+		get() = sharedPreferences.getString(PREFS_SAMPLE_TOKEN, "x")
 		set(userId) {
-			sharedPreferences.edit().putLong(PREFS_SAMPLE_TOKEN, userId).apply()
+			sharedPreferences.edit().putString(PREFS_SAMPLE_TOKEN, userId).apply()
 		}
 
 	open fun clearSampleToken() {

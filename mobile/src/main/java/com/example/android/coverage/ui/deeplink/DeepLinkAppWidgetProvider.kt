@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.coverage
+package com.example.android.coverage.ui.deeplink
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -22,6 +22,7 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.RemoteViews
 import androidx.navigation.NavDeepLinkBuilder
+import com.example.android.coverage.R
 
 /**
  * App Widget that deep links you to the [DeepLinkFragment].

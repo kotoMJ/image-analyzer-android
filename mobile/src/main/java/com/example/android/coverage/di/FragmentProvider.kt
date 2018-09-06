@@ -1,6 +1,6 @@
 package com.example.android.coverage.di
 
-import com.example.android.coverage.SettingsFragment
+import com.example.android.coverage.ui.settings.SettingsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

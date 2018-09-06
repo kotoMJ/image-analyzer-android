@@ -31,7 +31,7 @@ allprojects {
 
 		compileSdkVersion sdk_version
 		buildToolsVersion build_tools_version
-		dataBinding.enabled = true
+		dataBinding.enabled true
 		flavorDimensions "env"
 
 		defaultConfig {
@@ -125,7 +125,7 @@ allprojects {
 		implementation "com.android.support:appcompat-v7:$android_support_version"
 
 		// Common Kotlin
-		implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+		implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
 		// Common Dagger (minimal dagger dependency to generate classes across all modules)
 		kapt "com.google.dagger:dagger-compiler:$dagger_version"

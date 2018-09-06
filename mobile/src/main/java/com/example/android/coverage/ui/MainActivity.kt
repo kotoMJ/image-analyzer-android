@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.coverage
+package com.example.android.coverage.ui
 
 import android.content.res.Resources
 import android.os.Bundle
@@ -33,6 +33,7 @@ import androidx.navigation.ui.NavigationUI
 import com.crashlytics.android.Crashlytics
 import com.example.android.core.PreferencesCore
 import com.example.android.core.arch.BaseActivity
+import com.example.android.coverage.R
 import dagger.android.DispatchingAndroidInjector
 import io.fabric.sdk.android.Fabric
 import timber.log.Timber

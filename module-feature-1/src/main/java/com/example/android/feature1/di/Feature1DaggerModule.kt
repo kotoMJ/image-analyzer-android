@@ -1,6 +1,6 @@
 package com.example.android.feature1.di
 
-import com.example.android.feature1.FlowStepFragment
+import com.example.android.feature1.ui.FlowStepFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

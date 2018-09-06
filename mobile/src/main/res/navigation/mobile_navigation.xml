@@ -22,7 +22,7 @@
 
 	<fragment
 		android:id="@+id/launcher_home"
-		android:name="com.example.android.coverage.MainFragment"
+		android:name="com.example.android.coverage.ui.MainFragment"
 		android:label="@string/home"
 		tools:layout="@layout/main_fragment">
 
@@ -39,7 +39,7 @@
 
 	<fragment
 		android:id="@+id/settings_fragment"
-		android:name="com.example.android.coverage.SettingsFragment"
+		android:name="com.example.android.coverage.ui.settings.SettingsFragment"
 		android:label="fragment_settings"
 		tools:layout="@layout/fragment_settings">
 		<argument
@@ -49,7 +49,7 @@
 
 	<fragment
 		android:id="@+id/android"
-		android:name="com.example.android.coverage.DeepLinkFragment"
+		android:name="com.example.android.coverage.ui.deeplink.DeepLinkFragment"
 		android:label="@string/deeplink"
 		tools:layout="@layout/deeplink_fragment">
 

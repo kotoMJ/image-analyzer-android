@@ -20,7 +20,7 @@
 
 	<fragment
 		android:id="@+id/flow_step_one"
-		android:name="com.example.android.feature1.FlowStepFragment"
+		android:name="com.example.android.feature1.ui.FlowStepFragment"
 		tools:layout="@layout/flow_step_one_fragment">
 		<argument
 			android:name="setargs"
@@ -39,7 +39,7 @@
 
 	<fragment
 		android:id="@+id/flow_step_two"
-		android:name="com.example.android.feature1.FlowStepFragment"
+		android:name="com.example.android.feature1.ui.FlowStepFragment"
 		tools:layout="@layout/flow_step_two_fragment">
 
 		<argument

@@ -32,7 +32,7 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme"
 		tools:ignore="GoogleAppIndexingWarning">
-		<activity android:name="com.example.android.coverage.MainActivity">
+		<activity android:name="com.example.android.coverage.ui.MainActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 
@@ -44,7 +44,7 @@
 
 		</activity>
 
-		<receiver android:name="com.example.android.coverage.DeepLinkAppWidgetProvider">
+		<receiver android:name="com.example.android.coverage.ui.deeplink.DeepLinkAppWidgetProvider">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
 			</intent-filter>

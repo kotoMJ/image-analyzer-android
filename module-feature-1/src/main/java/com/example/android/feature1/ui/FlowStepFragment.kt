@@ -14,25 +14,21 @@
  * limitations under the License.
  */
 
-package com.example.android.feature1
+package com.example.android.feature1.ui
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.android.core.FeatureCore
-import com.example.android.core.di.Injectable
+import com.example.android.core.arch.BaseFragment
+import com.example.android.feature1.R
 
 /**
  * Presents how multiple steps flow could be implemented.
  */
-class FlowStepFragment : Fragment(), Injectable {
-
-//
-//	@Inject
-//	lateinit var application: Application
+class FlowStepFragment : BaseFragment() {
 
 
 	override fun onCreateView(
