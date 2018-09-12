@@ -1,6 +1,6 @@
 package com.example.android.coverage.di
 
-import com.example.android.coverage.ui.settings.SettingsFragment
+import com.example.android.coverage.ui.settings.SettingsCustomFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -8,5 +8,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentProvider {
 
 	@ContributesAndroidInjector
-	abstract fun contributeCreateSettingsFragment(): SettingsFragment
+	abstract fun contributeCreateSettingsFragment(): SettingsCustomFragment
 }

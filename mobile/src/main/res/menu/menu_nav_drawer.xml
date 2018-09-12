@@ -11,7 +11,7 @@
 			android:title="@string/deeplink" />
 	</group>
 	<item
-		android:id="@+id/settings_fragment"
+		android:id="@id/settings_fragment_custom"
 		android:icon="@drawable/ic_settings"
-		android:title="@string/settings" />
+		android:title="@string/settings_custom" />
 </menu>

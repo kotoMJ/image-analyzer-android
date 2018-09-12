@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<style name="Widget" />
+
+	<style name="Widget.Coverage" />
+
+	<style name="Widget.Coverage.CardView" parent="@style/Widget.Coverage">
+		<item name="android:foreground">?attr/selectableItemBackground</item>
+		<item name="cardBackgroundColor">@color/global_bg_front</item>
+		<item name="cardCornerRadius">@dimen/card_corner_radius</item>
+		<item name="cardElevation">@dimen/global_elevation_2</item>
+		<item name="cardMaxElevation">@dimen/global_elevation_8</item>
+		<item name="cardUseCompatPadding">true</item>
+	</style>
+
+	<style name="Widget.Coverage.Divider" parent="@style/Widget.Coverage">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">@dimen/divider_height</item>
+		<item name="android:background">?android:attr/listDivider</item>
+	</style>
+
+
+	<style name="Widget.Coverage.Divider.Inset" parent="@style/Widget.Coverage.Divider">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_marginStart">@dimen/global_spacing_72</item>
+	</style>
+
+	<style name="Widget.Coverage.FloatingActionButton" parent="Widget.Design.FloatingActionButton">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="backgroundTint">@color/global_accent</item>
+	</style>
+
+	<style name="Widget.LegalZoom.Progress" parent="@style/Widget.Coverage" />
+
+
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="arch_list">
+		<item>Model View Presenter</item>
+		<item>Model View Intent</item>
+		<item>Model View ViewModel</item>
+	</string-array>
+	<string-array name="arch_list_value">
+		<item>mvp</item>
+		<item>mvi</item>
+		<item>mvvm</item>
+	</string-array>
+</resources>

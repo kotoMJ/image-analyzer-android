@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="viewModel"
+			type="com.example.android.coverage.ui.settings.SettingsCustomViewModel" />
+
+		<variable
+			name="view"
+			type="com.example.android.coverage.ui.settings.SettingsCustomView" />
+
+	</data>
+
+	<android.support.v4.widget.NestedScrollView
+		android:id="@+id/settings_profile_scroll"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fillViewport="true">
+
+		<TableLayout
+			android:id="@+id/tableLayout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginBottom="@dimen/global_spacing_32"
+			android:orientation="vertical"
+			app:layout_constraintBottom_toBottomOf="parent">
+
+			<!--<TableRow-->
+			<!--android:id="@+id/settings_profile"-->
+			<!--android:onClick="@{() -> view.onShowProfileClick()}"-->
+			<!--android:background="?attr/selectableItemBackground"-->
+			<!--android:paddingTop="@dimen/global_spacing_16"-->
+			<!--android:gravity="center_vertical"-->
+			<!--android:paddingBottom="@dimen/global_spacing_16">-->
+
+			<!--<ImageView-->
+			<!--android:layout_width="@dimen/global_spacing_24"-->
+			<!--android:layout_height="@dimen/global_spacing_24"-->
+			<!--android:layout_marginStart="@dimen/global_spacing_16"-->
+			<!--android:layout_marginEnd="@dimen/global_spacing_16"-->
+			<!--app:srcCompat="@drawable/ic_profile" />-->
+
+			<!--<TextView-->
+			<!--android:textAppearance="@style/TextAppearance.Coverage.Body1"-->
+			<!--android:text="@string/title_settings_profile" />-->
+			<!--</TableRow>-->
+
+			<!--<View-->
+			<!--android:layout_marginStart="@dimen/global_spacing_16"-->
+			<!--style="@style/Widget.Coverage.Divider" />-->
+
+			<!--<TableRow-->
+			<!--android:id="@+id/settings_notifications"-->
+			<!--android:onClick="@{() -> view.onNotificationsClick()}"-->
+			<!--android:background="?attr/selectableItemBackground"-->
+			<!--android:paddingTop="@dimen/global_spacing_16"-->
+			<!--android:gravity="center_vertical"-->
+			<!--android:paddingBottom="@dimen/global_spacing_16">-->
+
+			<!--<ImageView-->
+			<!--android:layout_width="@dimen/global_spacing_24"-->
+			<!--android:layout_height="@dimen/global_spacing_24"-->
+			<!--android:layout_marginStart="@dimen/global_spacing_16"-->
+			<!--android:layout_marginEnd="@dimen/global_spacing_16"-->
+			<!--app:srcCompat="@drawable/ic_notifications" />-->
+
+			<!--<TextView-->
+			<!--android:layout_weight="1"-->
+			<!--android:textAppearance="@style/TextAppearance.Coverage.Body1"-->
+			<!--android:text="@string/title_settings_notifications" />-->
+
+			<!--<TextView-->
+			<!--android:id="@+id/notifications_indicator"-->
+			<!--android:textAppearance="@style/TextAppearance.Coverage.Body1.Disabled"-->
+			<!--android:paddingStart="@dimen/global_spacing_16"-->
+			<!--android:paddingEnd="@dimen/global_spacing_16"-->
+			<!--android:text="@{viewModel.notificationsEnabled ? @string/notifications_on : @string/notifications_off}"-->
+			<!--tools:text="On" />-->
+			<!--</TableRow>-->
+
+			<!--<View-->
+			<!--android:layout_marginStart="@dimen/global_spacing_16"-->
+			<!--style="@style/Widget.Coverage.Divider" />-->
+
+			<!--<TableRow-->
+			<!--android:id="@+id/settings_account"-->
+			<!--android:onClick="@{() -> view.onShowAccountClick()}"-->
+			<!--android:background="?attr/selectableItemBackground"-->
+			<!--android:paddingTop="@dimen/global_spacing_16"-->
+			<!--android:gravity="center_vertical"-->
+			<!--android:paddingBottom="@dimen/global_spacing_16">-->
+
+			<!--<ImageView-->
+			<!--android:layout_width="@dimen/global_spacing_24"-->
+			<!--android:layout_height="@dimen/global_spacing_24"-->
+			<!--android:layout_marginStart="@dimen/global_spacing_16"-->
+			<!--android:layout_marginEnd="@dimen/global_spacing_16"-->
+			<!--app:srcCompat="@drawable/ic_account" />-->
+
+			<!--<TextView-->
+			<!--android:textAppearance="@style/TextAppearance.Coverage.Body1"-->
+			<!--android:text="@string/title_settings_account" />-->
+			<!--</TableRow>-->
+
+			<Space
+				android:layout_height="0dp"
+				android:layout_weight="1" />
+			<TextView
+				android:id="@+id/version_number"
+				android:layout_gravity="center_vertical"
+				android:layout_marginEnd="@dimen/global_spacing_8"
+				android:layout_marginStart="@dimen/global_spacing_8"
+				android:layout_marginBottom="@dimen/global_spacing_8"
+				android:gravity="center"
+				android:textAppearance="@style/TextAppearance.Coverage.Caption.Disabled"
+				android:text="@{viewModel.appVersionString}"
+				tools:text="0.11.08-dev(113)" />
+		</TableLayout>
+
+	</android.support.v4.widget.NestedScrollView>
+</layout>

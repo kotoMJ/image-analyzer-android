@@ -15,6 +15,7 @@ import javax.inject.Singleton
 	AndroidInjectionModule::class,
 	AndroidSupportInjectionModule::class,
 	FeatureCoreModule::class,
+	ViewModelModule::class,
 	Feature1DaggerModule::class,
 	CodeCoverageDaggerModule::class
 ])

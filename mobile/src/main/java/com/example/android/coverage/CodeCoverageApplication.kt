@@ -30,6 +30,12 @@ class CodeCoverageApplication : Application(), ApplicationInterface, HasActivity
 		homePendingIntent.send()
 	}
 
+	override fun provideApplication(): Application = this
+
+	override fun getVersionCode() = BuildConfig.VERSION_CODE
+
+	override fun getVersionName() = BuildConfig.VERSION_NAME
+
 	override fun onCreate() {
 		super.onCreate()
 

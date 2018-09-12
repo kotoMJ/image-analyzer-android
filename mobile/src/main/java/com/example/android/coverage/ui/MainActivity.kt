@@ -25,7 +25,6 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
@@ -79,8 +78,6 @@ class MainActivity : BaseActivity() {
 				Integer.toString(destination.id)
 			}
 
-			Toast.makeText(this@MainActivity, "Navigated to $dest",
-				Toast.LENGTH_SHORT).show()
 			Timber.d("NavigationActivity", "Navigated to $dest")
 		}
 

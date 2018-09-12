@@ -19,6 +19,26 @@
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
+
+		<item name="preferenceTheme">
+			@style/AppPreferenceTheme
+		</item>
+
+
+	</style>
+
+
+	<!-- Custom Preference Theme -->
+	<style name="AppPreferenceTheme"
+		parent="@style/PreferenceThemeOverlay.v14.Material">
+		<item name="preferenceFragmentCompatStyle">
+			@style/AppPreferenceFragmentCompatStyle
+		</item>
+	</style>
+	<!-- Custom Style for PreferenceFragmentCompat -->
+	<style name="AppPreferenceFragmentCompatStyle"
+		parent="@style/PreferenceFragment.Material">
+		<item name="android:layout">@layout/pref_screen</item>
 	</style>
 
 </resources>

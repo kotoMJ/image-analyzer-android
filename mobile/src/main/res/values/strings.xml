@@ -19,10 +19,38 @@
 	<string name="home">Home</string>
 	<string name="deeplink">Deep link</string>
 	<string name="system_settings">System App Info</string>
-	<string name="settings">Settings</string>
+	<string name="settings_custom">Settings Custom</string>
+	<string name="settings_system">Settings Default</string>
+
 	<string name="help">Help</string>
-	<string name="settings_fragment_title">Settings fragment</string>
-	<string name="settings_fragment_text">Variable text</string>
+	<string name="settings_custom_fragment_title">Settings fragment custom</string>
+	<string name="settings_custom_fragment_text">Settings text</string>
+	<string name="settings_system_fragment_title">Settings fragment system</string>
 	<string name="shopping_cart">Shopping Cart</string>
 	<string name="shopping_fragment_text">Shopping fragment</string>
+
+	<string name="title_settings">Settings</string>
+	<string name="title_settings_profile">Profile</string>
+	<string name="title_settings_notifications">Notifications</string>
+	<string name="title_settings_account">Account</string>
+	<string name="title_settings_architecture">Architecture</string>
+	<string name="title_settings_terms_of_use">Terms of Use</string>
+	<string name="title_settings_privacy_policy">Privacy Policy</string>
+	<string name="title_settings_contact_us">Contact Us</string>
+	<string name="title_settings_change_password">Change Password</string>
+	<string name="title_settings_sign_out">Sign Out</string>
+	<string name="title_settings_email_legalzoom">Email Legalzoom</string>
+	<string name="title_settings_call_legalzoom">Call Customer Service</string>
+
+	<string name="notifications_on">On</string>
+	<string name="notifications_off">Off</string>
+
+
+	<string name="settings_arch_key">categoriesKey</string>
+	<string name="settings_default_arch">mvvm</string>
+	<string name="settings_arch_summary">Select preferred architecture</string>
+	<string name="settings_arch_title">Architectures</string>
+	<string name="settings_custom_button_title">Button in custom layout of system settings</string>
+
+
 </resources>

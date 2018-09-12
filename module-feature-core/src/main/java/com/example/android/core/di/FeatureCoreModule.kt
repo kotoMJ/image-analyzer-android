@@ -4,7 +4,9 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import com.example.android.core.FeatureCore
 import com.example.android.core.PreferencesCore
+import com.example.android.core.entity.AppVersion
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -27,6 +29,12 @@ open class FeatureCoreModule {
 	@Singleton
 	fun provideCorePreferences(context: Context, sharedPreferences: SharedPreferences): PreferencesCore {
 		return PreferencesCore(context, sharedPreferences)
+	}
+
+	@Provides
+	@Singleton
+	fun provideAppVersion(): AppVersion {
+		return AppVersion(FeatureCore.getVersionCode(), FeatureCore.getVersionName())
 	}
 
 }

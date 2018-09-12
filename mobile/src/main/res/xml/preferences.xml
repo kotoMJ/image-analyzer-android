@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<ListPreference
+		android:defaultValue="@string/settings_default_arch"
+		android:entries="@array/arch_list"
+		android:entryValues="@array/arch_list_value"
+		android:summary="@string/settings_arch_summary"
+		android:title="@string/settings_arch_title"
+		android:key="@string/settings_arch_key" />
+
+</PreferenceScreen>
