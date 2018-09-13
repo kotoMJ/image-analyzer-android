@@ -14,8 +14,12 @@ import dagger.android.HasActivityInjector
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 import javax.inject.Inject
+import com.crashlytics.android.Crashlytics
+import io.fabric.sdk.android.Fabric
 
-class CodeCoverageApplication : Application(), ApplicationInterface, HasActivityInjector {
+
+
+class AnalyzerApplication : Application(), ApplicationInterface, HasActivityInjector {
 
 	@Inject
 	lateinit var dispatchingActivityAndroidInjector: DispatchingAndroidInjector<Activity>
@@ -44,7 +48,7 @@ class CodeCoverageApplication : Application(), ApplicationInterface, HasActivity
 		} else {
 			Timber.plant(CrashReportingTree())
 		}
-
+		Fabric.with(this, Crashlytics())
 		FeatureCore.init(this)
 		AppInjector.init(this)
 	}

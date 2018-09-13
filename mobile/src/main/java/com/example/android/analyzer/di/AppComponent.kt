@@ -1,7 +1,7 @@
 package com.example.android.analyzer.di
 
 import android.app.Application
-import com.example.android.analyzer.CodeCoverageApplication
+import com.example.android.analyzer.AnalyzerApplication
 import com.example.android.analyzer.core.di.FeatureCoreModule
 import com.example.android.analyzer.text.di.TextRecognitionDaggerModule
 import dagger.BindsInstance
@@ -28,6 +28,6 @@ interface AppComponent {
 		fun build(): AppComponent
 	}
 
-	fun inject(codeCoverageApplication: CodeCoverageApplication)
+	fun inject(codeCoverageApplication: AnalyzerApplication)
 
 }

@@ -69,10 +69,5 @@ src/main/java/
 src/main/res/drawable/
 /app/fabric.properties
 app/fabric.properties
-module_feature1/src/main/java/
-module_feature1/src/main/res/drawable/
-module_feature2/src/main/java/
-module_feature2/src/main/res/drawable/
-module_feature_core/src/main/res/drawable/
 /.idea/
 /extras/secret/
