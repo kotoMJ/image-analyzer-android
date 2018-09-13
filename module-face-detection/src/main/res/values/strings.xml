@@ -1,0 +1,5 @@
+<resources>
+	<string name="app_name">Face detection</string>
+
+	<string name="face_detection_action">Face detection</string>
+</resources>

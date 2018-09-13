@@ -152,7 +152,7 @@ allprojects {
 		androidTestImplementation "com.android.support:support-annotations:$android_support_version"
 
 		// Common test objects
-		//testImplementation project(':module-feature-core-test')
+		//testImplementation project(':module-core-test')
 
 	}
 }

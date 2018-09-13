@@ -1,0 +1,5 @@
+<resources>
+	<string name="app_name">Text recognition (OCR)</string>
+
+	<string name="text_recognition_action">Text recognition</string>
+</resources>

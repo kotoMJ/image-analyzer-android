@@ -16,14 +16,13 @@
 	<string name="drawer_open">Open Navigation Drawer</string>
 	<string name="drawer_close">Close Navigation Drawer</string>
 	<string name="bottom_navigation">Bottom Nav</string>
-	<string name="home">Home</string>
+	<string name="home">Dashboard</string>
 	<string name="deeplink">Deep link</string>
 	<string name="system_settings">System App Info</string>
-	<string name="settings_custom">Settings Custom</string>
-	<string name="settings_system">Settings Default</string>
+	<string name="settings_custom">Settings</string>
 
 	<string name="help">Help</string>
-	<string name="settings_custom_fragment_title">Settings fragment custom</string>
+	<string name="settings_custom_fragment_title">Settings fragment</string>
 	<string name="settings_custom_fragment_text">Settings text</string>
 	<string name="settings_system_fragment_title">Settings fragment system</string>
 	<string name="shopping_cart">Shopping Cart</string>

@@ -5,10 +5,17 @@
 			android:id="@id/launcher_home"
 			android:icon="@drawable/ic_home"
 			android:title="@string/home" />
+
+		<item
+			android:id="@id/text_recognition_navigation"
+			android:icon="@drawable/ic_text_recognition"
+			android:title="@string/text_recognition_action" />
+
 		<item
 			android:id="@id/android"
-			android:icon="@drawable/ic_android"
-			android:title="@string/deeplink" />
+			android:icon="@drawable/ic_face_detection"
+			android:title="@string/face_detection_action"
+			android:enabled="false" />
 	</group>
 	<item
 		android:id="@id/settings_fragment_custom"

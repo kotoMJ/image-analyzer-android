@@ -18,17 +18,17 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	app:startDestination="@id/launcher_home">
 
-	<include app:graph="@navigation/feature_1_navigation" />
+	<include app:graph="@navigation/text_recognition_navigation" />
 
 	<fragment
 		android:id="@+id/launcher_home"
-		android:name="com.example.android.coverage.ui.MainFragment"
+		android:name="com.example.android.analyzer.ui.MainFragment"
 		android:label="@string/home"
 		tools:layout="@layout/main_fragment">
 
 		<action
 			android:id="@+id/next_action"
-			app:destination="@id/feature_1_navigation"
+			app:destination="@id/text_recognition_navigation"
 			app:enterAnim="@anim/slide_in_right"
 			app:exitAnim="@anim/slide_out_left"
 			app:popEnterAnim="@anim/slide_in_left"
@@ -39,14 +39,14 @@
 
 	<fragment
 		android:id="@+id/settings_fragment_custom"
-		android:name="com.example.android.coverage.ui.settings.SettingsCustomFragment"
+		android:name="com.example.android.analyzer.ui.settings.SettingsCustomFragment"
 		android:label="@string/settings_custom_fragment_title"
 		tools:layout="@layout/fragment_settings_custom">
 	</fragment>
 
 	<fragment
 		android:id="@+id/android"
-		android:name="com.example.android.coverage.ui.deeplink.DeepLinkFragment"
+		android:name="com.example.android.analyzer.ui.deeplink.DeepLinkFragment"
 		android:label="@string/deeplink"
 		tools:layout="@layout/deeplink_fragment">
 

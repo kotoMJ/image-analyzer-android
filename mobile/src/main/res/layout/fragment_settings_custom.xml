@@ -7,11 +7,11 @@
 
 		<variable
 			name="viewModel"
-			type="com.example.android.coverage.ui.settings.SettingsCustomViewModel" />
+			type="com.example.android.analyzer.ui.settings.SettingsCustomViewModel" />
 
 		<variable
 			name="view"
-			type="com.example.android.coverage.ui.settings.SettingsCustomView" />
+			type="com.example.android.analyzer.ui.settings.SettingsCustomView" />
 
 	</data>
 

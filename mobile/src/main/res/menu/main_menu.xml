@@ -6,5 +6,6 @@
 		android:id="@+id/shopping_cart"
 		android:icon="@drawable/ic_shopping_cart_white"
 		android:title="@string/shopping_cart"
+		android:visible="false"
 		app:showAsAction="ifRoom" />
 </menu>
