@@ -34,7 +34,7 @@ import com.example.android.analyzer.R
 import com.example.android.analyzer.core.PreferencesCore
 import com.example.android.analyzer.core.arch.BaseActivity
 import dagger.android.DispatchingAndroidInjector
-import io.fabric.sdk.android.Fabric
+//import io.fabric.sdk.android.Fabric
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -54,7 +54,7 @@ class MainActivity : BaseActivity() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		Fabric.with(this, Crashlytics())
+		//Fabric.with(this, Crashlytics())
 		setContentView(R.layout.navigation_activity)
 
 		val toolbar = findViewById<Toolbar>(R.id.toolbar)

@@ -18,7 +18,7 @@ apply plugin: 'com.android.application'
 apply from: '../common.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'io.fabric'
+//apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion sdk_version
@@ -29,7 +29,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = [crashlytics:getLocalProperty("crashlytics.key")]
+//        manifestPlaceholders = [crashlytics:getLocalProperty("crashlytics.key")]
         resValue "string", "app_name", "iAnalyzer (DEFAULT)"
     }
 
