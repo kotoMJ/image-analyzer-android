@@ -123,6 +123,10 @@ allprojects {
 				force "com.android.support:customtabs:$android_support_version"
 			}
 		}
+
+		lintOptions {
+			abortOnError false
+		}
 	}
 
 	/**
