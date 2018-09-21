@@ -91,6 +91,7 @@ task clean(type: Delete) {
 }
 
 def getLocalProperty(String propertyName) {
+    println "propertyName>>> ${propertyName}"
     def propsFile = rootProject.file('local.properties')
     if (propsFile.exists()) {
         def props = new Properties()
@@ -98,19 +99,18 @@ def getLocalProperty(String propertyName) {
 
         //Attempt to load property from local.properties
         def localProperty = props[propertyName]
-        println ">>> ${localProperty}"
+        println "local>>> ${localProperty}"
         if (localProperty!=null) return localProperty
-
-        //Attempt to load property from environment variable
-        def envProperty = build.getEnvironment(listener).get(propertyName)
-        println ">>> ${localProperty}"
-        return envProperty
-
-    } else {
-
-        //Attempt to load property from environment variable
-        def envProperty = build.getEnvironment(listener).get(propertyName)
-        println ">>> ${localProperty}"
-        return envProperty
     }
+
+    //Attempt to load property from environment variable
+    def envProperty = System.getenv(propertyName)
+    println "env>>> ${envProperty}"
+    if (envProperty!=null) return envProperty
+
+    def systemProperty = System.properties[propertyName]
+    println "system>>> ${systemProperty}"
+    if (systemProperty!=null) return envProperty
+
+    throw IllegalStateException("Missing property ${propertyName}")
 }
