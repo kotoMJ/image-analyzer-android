@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-include ':mobile', 'module-core', 'module-text-recognition', 'module-face-detection'
+include 'module-core',':module-test-utils', 'module-text-recognition', 'module-face-detection',':mobile'

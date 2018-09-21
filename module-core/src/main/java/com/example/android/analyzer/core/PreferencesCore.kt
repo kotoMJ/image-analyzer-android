@@ -10,11 +10,12 @@ open class PreferencesCore @Inject constructor(
 ) {
 
 	companion object {
-		private const val PREFS_SAMPLE_TOKEN = "prefs_sample_token"
+		const val PREFS_SAMPLE_TOKEN = "prefs_sample_token"
+		const val PREFS_DEFAULT_VALUE = "prefs_default_value"
 	}
 
 	open var sampleToken: String
-		get() = sharedPreferences.getString(PREFS_SAMPLE_TOKEN, "x")
+		get() = sharedPreferences.getString(PREFS_SAMPLE_TOKEN, PREFS_DEFAULT_VALUE)
 		set(userId) {
 			sharedPreferences.edit().putString(PREFS_SAMPLE_TOKEN, userId).apply()
 		}

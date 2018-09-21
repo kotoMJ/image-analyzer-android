@@ -28,45 +28,45 @@ import com.example.android.analyzer.text.R
 /**
  * Text recognition multi-step flow.
  */
-class TextRecognitionFlowFragment : BaseFragment() {
-
-	override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View? {
-		setHasOptionsMenu(true)
-
-		//val step = arguments?.getInt("step")
-
-		val step = arguments?.let {
-
-			val safeArgs = TextRecognitionFlowFragmentArgs.fromBundle(it)
-			safeArgs.step
-		}
-
-		return when (step) {
-			2 -> inflater.inflate(R.layout.text_recognition_fragment, container, false)
-			else -> inflater.inflate(R.layout.text_source_definition_fragment, container, false)
-		}
-	}
-
-	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-		super.onViewCreated(view, savedInstanceState)
-
-		//Timber.d(">>>${application.baseContext}")
-		arguments?.let { it ->
-
-			when (TextRecognitionFlowFragmentArgs.fromBundle(it).step) {
-				2 -> {
-					view.findViewById<View>(R.id.next_button).setOnClickListener { FeatureCore.applicationInterface.navigateHome() }
-				}
-				else -> {
-					view.findViewById<View>(R.id.next_button).setOnClickListener(
-						Navigation.createNavigateOnClickListener(R.id.next_action)
-					)
-				}
-			}
-		}
-
-	}
-}
+//class TextRecognitionFlowFragment_ : BaseFragment() {
+//
+//	override fun onCreateView(
+//		inflater: LayoutInflater, container: ViewGroup?,
+//		savedInstanceState: Bundle?
+//	): View? {
+//		setHasOptionsMenu(true)
+//
+//		//val step = arguments?.getInt("step")
+//
+//		val step = arguments?.let {
+//
+////			val safeArgs = TextRecognitionFlowFragmentArgs.fromBundle(it)
+////			safeArgs.step
+//		}
+//
+//		return when (step) {
+//			2 -> inflater.inflate(R.layout.fragment_text_recognition, container, false)
+//			else -> inflater.inflate(R.layout.fragment_text_source_definition, container, false)
+//		}
+//	}
+//
+//	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//		super.onViewCreated(view, savedInstanceState)
+//
+//		//Timber.d(">>>${application.baseContext}")
+//		arguments?.let { it ->
+//
+////			when (TextRecognitionFlowFragment_Args.fromBundle(it).step) {
+////				2 -> {
+////					view.findViewById<View>(R.id.next_button).setOnClickListener { FeatureCore.applicationInterface.navigateHome() }
+////				}
+////				else -> {
+////					view.findViewById<View>(R.id.next_button).setOnClickListener(
+////						Navigation.createNavigateOnClickListener(R.id.next_action)
+////					)
+////				}
+////			}
+//		}
+//
+//	}
+//}

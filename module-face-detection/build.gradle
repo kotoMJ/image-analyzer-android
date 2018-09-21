@@ -12,4 +12,5 @@ android {
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+	implementation 'com.google.firebase:firebase-ml-vision:17.0.0'
 }

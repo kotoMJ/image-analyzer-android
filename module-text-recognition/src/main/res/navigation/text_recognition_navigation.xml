@@ -20,9 +20,9 @@
 
 	<fragment
 		android:id="@+id/flow_step_one"
-		android:name="com.example.android.analyzer.text.ui.TextRecognitionFlowFragment"
-		android:label="Text recognition"
-		tools:layout="@layout/text_source_definition_fragment">
+		android:name="com.example.android.analyzer.text.ui.TextSourceDefinitionFragment"
+		android:label="Source definition"
+		tools:layout="@layout/fragment_text_source_definition">
 		<argument
 			android:name="setargs"
 			android:defaultValue="Android!" />
@@ -40,9 +40,9 @@
 
 	<fragment
 		android:id="@+id/flow_step_two"
-		android:name="com.example.android.analyzer.text.ui.TextRecognitionFlowFragment"
+		android:name="com.example.android.analyzer.text.ui.TextRecognitionFragment"
 		android:label="Text recognition"
-		tools:layout="@layout/text_recognition_fragment">
+		tools:layout="@layout/fragment_text_recognition">
 
 		<argument
 			android:name="step"

@@ -1,2 +1,11 @@
 <manifest
-	package="com.example.android.analyzer.text" />
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.example.android.analyzer.text">
+
+	<uses-feature
+		android:name="android.hardware.camera"
+		android:required="false" />
+
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+</manifest>

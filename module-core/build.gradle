@@ -32,6 +32,12 @@ dependencies {
 	api "android.arch.lifecycle:extensions:$android_arch_version"
 	kapt "android.arch.lifecycle:compiler:$android_arch_version"
 
+	implementation "com.android.support:design:$android_support_version"
+	implementation "com.android.support:cardview-v7:$android_support_version"
+	implementation "com.android.support:recyclerview-v7:$android_support_version"
+	implementation "com.android.support:preference-v7:$android_support_version"
+	implementation "com.android.support.constraint:constraint-layout:$android_constraint_layout_version"
+
 	api "com.android.databinding:library:$android_gradle_version"
 	api "com.android.databinding:adapters:$android_gradle_version"
 

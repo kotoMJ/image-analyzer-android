@@ -1,5 +1,8 @@
 <resources>
 	<string name="app_name">Text recognition (OCR)</string>
 
+	<string name="text_source_definition_no_files_selected">No source file was selected.</string>
+	<string name="text_source_definition_permission_write_external_storage_needed">Permission for accessing local files needed.</string>
+
 	<string name="text_recognition_action">Text recognition</string>
 </resources>
