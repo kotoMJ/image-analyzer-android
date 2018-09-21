@@ -19,22 +19,22 @@ jobs:
         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
         command: sudo chmod +x ./gradlew
     - run:
-      name: Download Dependencies
-      command: ./gradlew androidDependencies
+        name: Download Dependencies
+        command: ./gradlew androidDependencies
 
     - save_cache:
-      paths:
-      - ~/.gradle
-      key: jars-{{ checksum "build.gradle" }}-{{ checksum "mobile/build.gradle" }}
+        paths:
+        - ~/.gradle
+        key: jars-{{ checksum "build.gradle" }}-{{ checksum "mobile/build.gradle" }}
 
     - run:
-      name: Run Tests
-      command: ./gradlew lint test
+        name: Run Tests
+        command: ./gradlew lint test
 
     - store_artifacts:
-      path: app/build/reports
-      destination: reports
+        path: app/build/reports
+        destination: reports
 
     - store_test_results:
-      path: app/build/test-results
+        path: app/build/test-results
 
