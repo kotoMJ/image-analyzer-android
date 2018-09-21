@@ -32,7 +32,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = [crashlytics:getLocalProperty("crashlytics.key")]
+        manifestPlaceholders = [crashlytics:getLocalProperty("crashlytics_key")]
         resValue "string", "app_name", "iAnalyzer (DEFAULT)"
     }
 
