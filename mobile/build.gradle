@@ -18,6 +18,7 @@ apply plugin: 'com.android.application'
 apply from: '../common.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply from: '../jacoco.gradle' //since app module doesn't apply module-core/library.gradle, thus apply jacoco.gradle extra
 apply plugin: 'io.fabric'
 
 final APK_NAME = "ImageAnalyzer"

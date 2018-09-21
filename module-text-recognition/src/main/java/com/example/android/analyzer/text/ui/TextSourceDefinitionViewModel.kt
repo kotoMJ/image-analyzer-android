@@ -28,12 +28,13 @@ class TextSourceDefinitionViewModel @Inject constructor() : ObservableViewModel(
 	fun getUrisFromResult(data: Intent): List<Uri> {
 		val selectedFiles = mutableListOf<Uri>()
 
-		if (data.clipData != null) { // checking multiple selection
-			for (i in 0 until data.clipData.itemCount) {
-				selectedFiles.add(data.clipData.getItemAt(i).uri)
+		val clipData = data.clipData
+		if (clipData != null) { // checking multiple selection
+			for (i in 0 until clipData.itemCount) {
+				selectedFiles.add(clipData.getItemAt(i).uri)
 			}
 		} else {
-			selectedFiles.add(data.data)
+			selectedFiles.add(data.data!!)
 		}
 
 		return selectedFiles

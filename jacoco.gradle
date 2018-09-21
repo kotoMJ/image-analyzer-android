@@ -18,15 +18,16 @@ jacoco {
 
 task jacocoTestReport(type: JacocoReport, dependsOn: "test${jacocoEnv.capitalize()}${jacocoBuildType.capitalize()}UnitTest") {
 
-	doFirst {
-		// Bit hacky but fixes https://code.google.com/p/android/issues/detail?id=69174.
-		// We iterate through the compiled .class tree and rename $$ to $.
-		new File("$buildDir/intermediates/classes/").eachFileRecurse { file ->
-			if (file.name.contains('$$')) {
-				file.renameTo(file.path.replace('$$', '$'))
-			}
-		}
-	}
+// This hack is required for buildTools version (older than 21)
+//	doFirst {
+//		// Bit hacky but fixes https://code.google.com/p/android/issues/detail?id=69174.
+//		// We iterate through the compiled .class tree and rename $$ to $.
+//		new File("$buildDir/intermediates/classes/").eachFileRecurse { file ->
+//			if (file.name.contains('$$')) {
+//				file.renameTo(file.path.replace('$$', '$'))
+//			}
+//		}
+//	}
 
 	group = "Reporting"
 	description = "Generate Jacoco coverage reports for Debug build"

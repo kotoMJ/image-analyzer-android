@@ -15,7 +15,7 @@ open class PreferencesCore @Inject constructor(
 	}
 
 	open var sampleToken: String
-		get() = sharedPreferences.getString(PREFS_SAMPLE_TOKEN, PREFS_DEFAULT_VALUE)
+		get() = sharedPreferences.getString(PREFS_SAMPLE_TOKEN, PREFS_DEFAULT_VALUE) ?: PREFS_DEFAULT_VALUE
 		set(userId) {
 			sharedPreferences.edit().putString(PREFS_SAMPLE_TOKEN, userId).apply()
 		}
