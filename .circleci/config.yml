@@ -44,7 +44,7 @@ jobs:
         command: ./gradlew mobile:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
 
     - run:
-        name: Coverage
+        name: Trigger codecov publishing
         command: |
           curl https://codecov.io/bash -o codecov.sh
           chmod +x codecov.sh
