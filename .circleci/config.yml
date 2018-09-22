@@ -43,6 +43,17 @@ jobs:
         name: Test mobile
         command: ./gradlew mobile:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
 
+    - run:
+        name: Coverage
+        command: |
+          curl https://codecov.io/bash -o codecov.sh
+          chmod +x codecov.sh
+          ./codecov.sh -X gcov -X coveragepy -X xcode \
+              -f module-core/build/reports/jacocoTestReport/jacocoTestReport.xml \
+              -f module-face-detection/build/reports/jacocoTestReport/jacocoTestReport.xml \
+              -f module-text-recognition/build/reports/jacocoTestReport/jacocoTestReport.xml \
+              -f mobile/build/reports/jacocoTestReport/jacocoTestReport.xml
+
     - store_artifacts:
         path: module-core/build/reports
         destination: reports
