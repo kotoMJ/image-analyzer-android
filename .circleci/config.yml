@@ -27,14 +27,31 @@ jobs:
         - ~/.gradle
         key: jars-{{ checksum "build.gradle" }}-{{ checksum "mobile/build.gradle" }}
 
-    - run:
-        name: Run Tests
-        command: ./gradlew lint test
+    -run:
+      name: CleanUp
+      command: ./gradlew clean
 
-    - store_artifacts:
-        path: app/build/reports
-        destination: reports
+      - run:
+          name: Test module-core
+          command: ./gradlew module-core:jacocoTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
 
-    - store_test_results:
-        path: app/build/test-results
+      - run:
+          name: Test module-face-detection
+          command: ./gradlew module-face-detection:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+
+      - run:
+          name: Test module-text-recognition
+          command: ./gradlew module-text-recognition:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+
+      - run:
+          name: Test mobile
+          command: ./gradlew mobile:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+
+
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+
+      - store_test_results:
+          path: app/build/test-results
 
