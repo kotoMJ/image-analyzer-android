@@ -25,7 +25,7 @@ android:
   - 'google-gdk-license-.+'
 
 script:
-- ./gradlew clean build
+- ./gradlew clean
 - ./gradlew module-core:jacocoTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
 - ./gradlew module-face-detection:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
 - ./gradlew module-text-recognition:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
