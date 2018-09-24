@@ -3,7 +3,7 @@ Sample project to show how compute code coverage of tests on multi-module Androi
 
 
 | Branch | Status on CircleCI | Status on TravisCI | Code coverage |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | develop| [![CircleCI](https://circleci.com/gh/kotomisak/image-analyzer-android.svg?style=svg)](https://circleci.com/gh/kotomisak/image-analyzer-android)|[![Build Status](https://travis-ci.org/kotomisak/image-analyzer-android.svg?branch=develop)](https://travis-ci.org/kotomisak/image-analyzer-android)|[![codecov](https://codecov.io/gh/kotomisak/image-analyzer-android/branch/develop/graph/badge.svg)](https://codecov.io/gh/kotomisak/image-analyzer-android)|
 
 
