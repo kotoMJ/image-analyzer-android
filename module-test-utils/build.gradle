@@ -27,7 +27,6 @@ android {
 		}
 		debug {
 			minifyEnabled false
-			testCoverageEnabled false
 		}
 	}
 	dataBinding {
