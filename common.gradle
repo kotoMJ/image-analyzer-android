@@ -76,6 +76,7 @@ allprojects {
 		buildTypes {
 			debug {
 				buildConfigField "boolean", "LOGS", "true"
+				testCoverageEnabled true
 			}
 
 			release {
