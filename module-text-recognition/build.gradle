@@ -11,4 +11,5 @@ dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
 	implementation project(':module-core')
+	implementation project(':module-test-utils')
 }

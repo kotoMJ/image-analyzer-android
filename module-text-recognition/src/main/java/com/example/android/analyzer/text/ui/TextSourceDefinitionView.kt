@@ -35,7 +35,7 @@ class TextSourceDefinitionFragment : BaseFragment(), TextSourceDefinitionView {
 		const val REQUEST_VIDEO_CAPTURE = 333
 	}
 
-	private val vmb by vmb<TextSourceDefinitionViewModel, FragmentTextSourceDefinitionBinding>(R.layout.fragment_text_source_definition) { findViewModel(TextSourceDefinitionViewModel::class.java) }
+	val vmb by vmb<TextSourceDefinitionViewModel, FragmentTextSourceDefinitionBinding>(R.layout.fragment_text_source_definition) { findViewModel(TextSourceDefinitionViewModel::class.java) }
 
 	val permissionManager by lazy { FragmentPermissionManager(this) }
 

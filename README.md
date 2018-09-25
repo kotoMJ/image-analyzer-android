@@ -1,5 +1,7 @@
-# test-code-coverage-android
+# image-analyzer-android
 Sample project to show how compute code coverage of tests on multi-module Android project written in Kotlin.
+
+App it self contains several business modules to provide Google MLKit functionality.
 
 
 | Branch | Status on CircleCI | Status on TravisCI | Code coverage |

@@ -63,19 +63,36 @@ dependencies {
 	 */
 	api "junit:junit:$junit_version"
 	api "org.mockito:mockito-core:$mockito_version"
-	api "org.powermock:powermock-module-junit4:$powermock_version"
-	api "org.powermock:powermock-module-junit4-rule:$powermock_version"
-	api "org.powermock:powermock-api-mockito2:$powermock_version"
-	api "org.powermock:powermock-classloading-xstream:$powermock_version"
+//	api "org.powermock:powermock-module-junit4:$powermock_version"
+//	api "org.powermock:powermock-module-junit4-rule:$powermock_version"
+//	api "org.powermock:powermock-api-mockito2:$powermock_version"
+//	api "org.powermock:powermock-classloading-xstream:$powermock_version"
 	api "android.arch.core:core-testing:$android_arch_version"
 
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-	implementation 'com.android.support:appcompat-v7:28.0.0-rc02'
-	testImplementation 'junit:junit:4.12'
 	androidTestImplementation 'com.android.support.test:runner:1.0.2'
-	androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+	testImplementation 'org.hamcrest:hamcrest-library:1.3'
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+	/**
+	 *  UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST UI-TEST
+	 */
+
+	// Espresso core
+	androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso_version",{
+		exclude group: 'com.android.support', module: 'support-annotations'
+	})
+	// Espresso-contrib for DatePicker, RecyclerView, Drawer actions, Accessibility checks, CountingIdlingResource
+	androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$espresso_version",{
+		exclude group: 'com.android.support', module: 'support-annotations'
+	})
+	androidTestImplementation("com.android.support.test.espresso:espresso-intents:$espresso_version",{
+		exclude group: 'com.android.support', module: 'support-annotations'
+	})
+	androidTestImplementation("com.android.support:support-annotations:$android_support_version",{
+		exclude group: 'com.android.support', module: 'support-annotations'
+	})
 }
 repositories {
 	maven {

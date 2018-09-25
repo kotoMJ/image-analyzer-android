@@ -1,4 +1,4 @@
-package com.strv.ktools
+package com.example.android.analyzer.core.ktools
 
 import android.os.Handler
 import android.os.Looper

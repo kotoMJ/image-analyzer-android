@@ -164,12 +164,6 @@ allprojects {
 		//Common UI test
 		androidTestImplementation "org.mockito:mockito-android:$mockito_version"
 
-		// Espresso core
-		androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
-		// Espresso-contrib for DatePicker, RecyclerView, Drawer actions, Accessibility checks, CountingIdlingResource
-		androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espresso_version"
-		androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espresso_version"
-		androidTestImplementation "com.android.support:support-annotations:$android_support_version"
 
 		// Common test objects
 		testImplementation project(':module-test-utils')

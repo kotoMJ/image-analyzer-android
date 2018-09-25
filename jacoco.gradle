@@ -1,4 +1,5 @@
 apply plugin: 'jacoco'
+apply from: "../jacoco.exclude.gradle"
 
 
 def jacocoBuildType = project.hasProperty('jacocoBuildType') ? project.property('jacocoBuildType') : 'jacocoBuildTypeNotFound'//release
@@ -18,7 +19,7 @@ jacoco {
 
 task jacocoTestReport(type: JacocoReport, dependsOn: "test${jacocoEnv.capitalize()}${jacocoBuildType.capitalize()}UnitTest") {
 
-// This hack is required for buildTools version (older than 21)
+// TODO This hack is required for older buildTools version
 //	doFirst {
 //		// Bit hacky but fixes https://code.google.com/p/android/issues/detail?id=69174.
 //		// We iterate through the compiled .class tree and rename $$ to $.
@@ -37,44 +38,13 @@ task jacocoTestReport(type: JacocoReport, dependsOn: "test${jacocoEnv.capitalize
 		html.enabled = true
 	}
 
-	// what to exclude from coverage html report
-	// UI, "noise", generated classes, platform classes, etc.
-	// Don't forget update exclusion also in Jenkinsfile-merge-check because of Jenkins plugin!
-	def excludes = [
-			'**/R.class',
-			'**/BR.class',
-			'**/R$*.class',
-			'**/*$ViewInjector*.*',
-			'**/BuildConfig.*',
-			'**/Manifest*.*',
-			'**/*Test*.*',
-			'**/*$Lambda$*.*', // Jacoco can not handle several "$" in class name.
-			'**/*Module.*', // Modules for Dagger
-			'**/*Dagger*.*', // Dagger auto-generated code.
-			'**/*MembersInjector*.*', // Dagger auto-generated code.
-			'**/*_Provide*Factory*.*',
-			'**/*_Factory.*', //Dagger auto-generated code
-			'android/**/*.*',
-			'com/android/**/*',
-			'**/*Fragment.*',
-			'**/*Activity.*',
-			'org/alfonz/**/*',
-			'com/bumptech/**/*',
-			'io/realm/**/*',
-			'com/mlykotom/**/*',
-			'com/legalzoom/kollaborate/**/databinding', //we don't test databinding classes
-			'com/legalzoom/kollaborate/**/di/**', //nothing to test on di
-			'com/legalzoom/kollaborate/base/glide', //exclude hard to test glide customization
-			'com/legalzoom/kollaborate/login/rxfingerprint', //no tests for third party library copied to our code
-			'com/legalzoom/kollaborate/base/encryption'
-	]
 	// generated classes
 	classDirectories = fileTree(
 			dir: "$buildDir/intermediates/classes/${jacocoEnv}/${jacocoBuildType}",
-			excludes: excludes
+			excludes: project.excludeFromAnalysis
 	) + fileTree(
 			dir: "$buildDir/tmp/kotlin-classes/${jacocoEnv}${jacocoBuildType.capitalize()}",
-			excludes: excludes
+			excludes: project.excludeFromAnalysis
 	)
 
 	// sources

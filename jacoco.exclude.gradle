@@ -1,0 +1,33 @@
+// what to exclude from coverage html report
+// UI, "noise", generated classes, platform classes, etc.
+// Don't forget update exclusion also in Jenkinsfile because of Jenkins plugin!
+
+ext {
+	excludeFromAnalysis = [
+			'android/**/*.*',
+			'com/android/**/*',
+			'com/bumptech/**/*',
+			'io/realm/**/*',
+			'**/R.class',
+			'**/BR.class',
+			'**/R$*.class',
+			'**/*$ViewInjector*.*',
+			'**/BuildConfig.*',
+			'**/Manifest*.*',
+			'**/*Test*.*',
+			'**/*$Lambda$*.*', // Jacoco can not handle several "$" in class name.
+			'**/*Module.*', // Modules for Dagger
+			'**/*Dagger*.*', // Dagger auto-generated code.
+			'**/*MembersInjector*.*', // Dagger auto-generated code.
+			'**/*_Provide*Factory*.*',
+			'**/*_Factory.*', //Dagger auto-generated code
+			'**/*Fragment.*',
+			'**/*Activity.*',
+			'com/example/android/analyzer/**/databinding', //we don't test databinding classes
+			'com/example/android/analyzer/**/di/**', //nothing to test on di
+			'com/example/android/analyzer/**/glide', //exclude hard to test glide customization
+
+			//Test ktools code after all app's business logic will be covered.
+			'com/example/android/analyzer/core/ktools/**'
+	]
+}
