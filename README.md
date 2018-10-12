@@ -39,6 +39,12 @@ Otherwise you will find html files in build directories:<br/>
 ./module-text-recognition/build/reports/jacocoUnitTestReport/html/index.html<br/>
 ./mobile/build/reports/jacocoUnitTestReport/html/index.html<br/>
 
+# UI TEST COVERAGE still in progress
+
+I have been working on adding UI testing for isolated fragments.
+Then I would like to connect code coverage also for that UI tests.
+Every work in progress is available in feature branches.
+
 # Special thanks to sources
 
 
