@@ -23,6 +23,8 @@ Preferences -> Editor -> Codestyle -> Kotlin -> `extras/code-schema/strv.xml`
 
 # Run application from source
 
+Open source in `Android Studio 3.3 Canary 13` (or newer)<br/>
+
 `Use mockDebug Build Variant.`
 
 Use **MOCK** flavour to run application without need to register app to fabric.<br/>
