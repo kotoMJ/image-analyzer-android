@@ -41,9 +41,9 @@ Otherwise you will find html files in build directories:<br/>
 
 # UI TEST COVERAGE still in progress
 
-I have been working on adding UI testing for isolated fragments.
-Then I would like to connect code coverage also for that UI tests.
-Every work in progress is available in feature branches.
+I have been working on adding UI testing for isolated fragments.<br/>
+Then I would like to connect code coverage also for that UI tests.<br/>
+Every work in progress is available in feature branches.<br/>
 
 # Special thanks to sources
 
