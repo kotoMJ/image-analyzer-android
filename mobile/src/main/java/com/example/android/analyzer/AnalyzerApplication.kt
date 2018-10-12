@@ -6,18 +6,17 @@ import android.support.annotation.Nullable
 import android.util.Log
 import android.util.Log.INFO
 import androidx.navigation.NavDeepLinkBuilder
+import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.core.CrashlyticsCore
 import com.example.android.analyzer.core.ApplicationInterface
 import com.example.android.analyzer.core.FeatureCore
 import com.example.android.analyzer.di.AppInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import io.fabric.sdk.android.Fabric
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 import javax.inject.Inject
-import com.crashlytics.android.Crashlytics
-import io.fabric.sdk.android.Fabric
-
-
 
 class AnalyzerApplication : Application(), ApplicationInterface, HasActivityInjector {
 
@@ -48,7 +47,10 @@ class AnalyzerApplication : Application(), ApplicationInterface, HasActivityInje
 		} else {
 			Timber.plant(CrashReportingTree())
 		}
-		Fabric.with(this, Crashlytics())
+
+		Fabric.with(this, Crashlytics.Builder().core(CrashlyticsCore.Builder().disabled(isFabricDisabled()).build()).build())
+		//Fabric.with(this, Crashlytics())
+
 		FeatureCore.init(this)
 		AppInjector.init(this)
 	}
@@ -74,5 +76,9 @@ class AnalyzerApplication : Application(), ApplicationInterface, HasActivityInje
 		fun isLoggable(priority: Int, @Nullable tag: String): Boolean {
 			return priority >= INFO
 		}
+	}
+
+	private fun isFabricDisabled(): Boolean {
+		return BuildConfig.DEBUG || BuildConfig.FLAVOR == "mock"
 	}
 }

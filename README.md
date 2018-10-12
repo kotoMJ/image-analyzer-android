@@ -9,12 +9,26 @@ App it self contains several business modules to provide Google MLKit functional
 | develop| [![CircleCI](https://circleci.com/gh/kotomisak/image-analyzer-android.svg?style=svg)](https://circleci.com/gh/kotomisak/image-analyzer-android)|[![Build Status](https://travis-ci.org/kotomisak/image-analyzer-android.svg?branch=develop)](https://travis-ci.org/kotomisak/image-analyzer-android)|[![codecov](https://codecov.io/gh/kotomisak/image-analyzer-android/branch/develop/graph/badge.svg)](https://codecov.io/gh/kotomisak/image-analyzer-android)|
 
 
-# configure your secrets
+# Android MeetUp presentation
 
-## crashlytics
-Crashlytics api_key is kept in **local.properties**
-Create key/value pair in **local.properties** `crashlytics_key=your_api_key_here`
-You can keep this key also as environtment variable (e.g. for usage in CI)
+Look at slides from my talk on Android meetup:<br/>
+[ ![STRV](./extras/presentation/coverage_logo.png) ](./extras/presentation/AndroidCodeCoverage.pdf)<br/>
+
+
+# Code Schema
+
+Codebase is written using STRV code schema.
+
+Preferences -> Editor -> Codestyle -> Kotlin -> `extras/code-schema/strv.xml`
+
+# Run application from source
+
+`Use mockDebug Build Variant.`
+
+Use **MOCK** flavour to run application without need to register app to fabric.
+Use **DEBUG** variant to run application without need to configure app signing.
+
+
 
 # Special thanks to sources
 

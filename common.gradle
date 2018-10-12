@@ -66,10 +66,6 @@ allprojects {
 			}
 			mock {
 				java.srcDirs += 'src/mock/java'
-				resources.srcDirs += mock_files
-			}
-			test {
-				resources.srcDirs += mock_files
 			}
 		}
 
@@ -82,8 +78,9 @@ allprojects {
 			release {
 				buildConfigField "boolean", "LOGS", "false"
 				//TODO UI testing? testCoverageEnabled = true
-				zipAlignEnabled true
-				minifyEnabled true
+
+				zipAlignEnabled false //TODO temporarily disabled true
+				minifyEnabled false //TODO temporarily disabled true
 
 				proguardFile '../proguard-rules/proguard-square-retrofit2.pro'
 				proguardFile '../proguard-rules/proguard-square-leakcanary.pro'
