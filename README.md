@@ -28,7 +28,16 @@ Preferences -> Editor -> Codestyle -> Kotlin -> `extras/code-schema/strv.xml`
 Use **MOCK** flavour to run application without need to register app to fabric.
 Use **DEBUG** variant to run application without need to configure app signing.
 
+# Run Code Coverage locally
 
+Run `sh jacoco.sh` in the root of project.
+If you run it on MacOs it will open Chrome and display generated HTMLs.
+
+Otherwise you will find html files in build directories:
+./module-core/build/reports/jacocoUnitTestReport/html/index.html
+./module-face-detection/build/reports/jacocoUnitTestReport/html/index.html
+./module-text-recognition/build/reports/jacocoUnitTestReport/html/index.html
+./mobile/build/reports/jacocoUnitTestReport/html/index.html
 
 # Special thanks to sources
 
