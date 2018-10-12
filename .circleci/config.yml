@@ -32,16 +32,16 @@ jobs:
         command: ./gradlew clean
     - run:
         name: Test module-core
-        command: ./gradlew module-core:jacocoTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
+        command: ./gradlew module-core:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
     - run:
         name: Test module-face-detection
-        command: ./gradlew module-face-detection:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+        command: ./gradlew module-face-detection:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
     - run:
         name: Test module-text-recognition
-        command: ./gradlew module-text-recognition:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+        command: ./gradlew module-text-recognition:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
     - run:
         name: Test mobile
-        command: ./gradlew mobile:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+        command: ./gradlew mobile:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
 
     - run:
         name: Trigger codecov publishing
@@ -49,10 +49,10 @@ jobs:
           curl https://codecov.io/bash -o codecov.sh
           chmod +x codecov.sh
           ./codecov.sh -X gcov -X coveragepy -X xcode \
-              -f module-core/build/reports/jacocoTestReport/jacocoTestReport.xml \
-              -f module-face-detection/build/reports/jacocoTestReport/jacocoTestReport.xml \
-              -f module-text-recognition/build/reports/jacocoTestReport/jacocoTestReport.xml \
-              -f mobile/build/reports/jacocoTestReport/jacocoTestReport.xml
+              -f module-core/build/reports/jacocoUnitTestReport/jacocoUnitTestReport.xml \
+              -f module-face-detection/build/reports/jacocoUnitTestReport/jacocoUnitTestReport.xml \
+              -f module-text-recognition/build/reports/jacocoUnitTestReport/jacocoUnitTestReport.xml \
+              -f mobile/build/reports/jacocoUnitTestReport/jacocoUnitTestReport.xml
 
     - store_artifacts:
         path: module-core/build/reports

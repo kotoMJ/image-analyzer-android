@@ -26,10 +26,10 @@ android:
 
 script:
 - ./gradlew clean
-- ./gradlew module-core:jacocoTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
-- ./gradlew module-face-detection:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
-- ./gradlew module-text-recognition:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
-- ./gradlew mobile:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+- ./gradlew module-core:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
+- ./gradlew module-face-detection:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
+- ./gradlew module-text-recognition:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
+- ./gradlew mobile:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
 
 #- echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
 #- emulator -avd test -no-skin -no-audio -no-window &

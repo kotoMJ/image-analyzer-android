@@ -11,7 +11,7 @@ allprojects {
 	apply plugin: 'androidx.navigation.safeargs'
 
 	allOpen {
-		annotation('com.legalzoom.kollaborate.base.OpenForMocking')
+		annotation('com.example.android.analyzer.core.OpenForMocking')
 	}
 
 	kapt {
@@ -76,11 +76,12 @@ allprojects {
 		buildTypes {
 			debug {
 				buildConfigField "boolean", "LOGS", "true"
+				//TODO UI testing? testCoverageEnabled = true
 			}
 
 			release {
 				buildConfigField "boolean", "LOGS", "false"
-
+				//TODO UI testing? testCoverageEnabled = true
 				zipAlignEnabled true
 				minifyEnabled true
 
@@ -153,6 +154,9 @@ allprojects {
 
 		//Logging
 		implementation 'com.jakewharton.timber:timber:4.7.1'
+
+
+		/* TEST DEPENDENCIES BASICS FOR EVERY MODULE - for ability to test modules with lower dependency than module-test-utils */
 
 		// Common AndroidJUnitRunner and JUnit Rules
 		androidTestImplementation "com.android.support.test:runner:$android_support_test_version"

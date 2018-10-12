@@ -4,22 +4,22 @@
 
 # Kotlin specific codeCoverage with filtering
 
-./gradlew module-core:jacocoTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
+./gradlew module-core:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
 if [[ "$OSTYPE" == "darwin"* ]]; then   # Mac OSX
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk ./module-core/build/reports/jacocoTestReport/html/index.html
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk ./module-core/build/reports/jacocoUnitTestReport/html/index.html
 fi
 
-./gradlew module-face-detection:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+./gradlew module-face-detection:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
 if [[ "$OSTYPE" == "darwin"* ]]; then   # Mac OSX
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk ./module-face-detection/build/reports/jacocoTestReport/html/index.html
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk ./module-face-detection/build/reports/jacocoUnitTestReport/html/index.html
 fi
 
-./gradlew module-text-recognition:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+./gradlew module-text-recognition:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
 if [[ "$OSTYPE" == "darwin"* ]]; then   # Mac OSX
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk ./module-text-recognition/build/reports/jacocoTestReport/html/index.html
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk ./module-text-recognition/build/reports/jacocoUnitTestReport/html/index.html
 fi
 
-./gradlew mobile:jacocoTestReport -PjacocoBuildType=release -PjacocoEnv=dev
+./gradlew mobile:jacocoUnitTestReport -PjacocoBuildType=debug -PjacocoEnv=dev
 if [[ "$OSTYPE" == "darwin"* ]]; then   # Mac OSX
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk ./mobile/build/reports/jacocoTestReport/html/index.html
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk ./mobile/build/reports/jacocoUnitTestReport/html/index.html
 fi

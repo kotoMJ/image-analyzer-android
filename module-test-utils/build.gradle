@@ -1,17 +1,28 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-allopen'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
 
 kapt {
 	useBuildCache = true
 	correctErrorTypes = true // avoid unknown type replacing with NonExistentClass
 }
 
+allOpen {
+	annotation('com.example.android.analyzer.core.OpenForMocking')
+}
+
 android {
 
 	compileSdkVersion sdk_version
 	buildToolsVersion build_tools_version
+
+	compileSdkVersion sdk_version
+	buildToolsVersion build_tools_version
+	dataBinding.enabled true
+	flavorDimensions "env"
 
 	defaultConfig {
 		minSdkVersion min_sdk_version
@@ -24,9 +35,11 @@ android {
 		release {
 			minifyEnabled false
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			//TODO UI? testCoverageEnabled = true
 		}
 		debug {
 			minifyEnabled false
+			//TODO UI? testCoverageEnabled = true
 		}
 	}
 	dataBinding {
@@ -62,16 +75,13 @@ dependencies {
 	 */
 	api "junit:junit:$junit_version"
 	api "org.mockito:mockito-core:$mockito_version"
-//	api "org.powermock:powermock-module-junit4:$powermock_version"
-//	api "org.powermock:powermock-module-junit4-rule:$powermock_version"
-//	api "org.powermock:powermock-api-mockito2:$powermock_version"
-//	api "org.powermock:powermock-classloading-xstream:$powermock_version"
+//	https://proandroiddev.com/mockito-2-x-over-powermock-migration-tips-and-tricks-top-ten-118c52abd1d8
+	api "org.powermock:powermock-api-mockito2:$powermock_version"
 	api "android.arch.core:core-testing:$android_arch_version"
 
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-	androidTestImplementation 'com.android.support.test:runner:1.0.2'
-	testImplementation 'org.hamcrest:hamcrest-library:1.3'
+	api 'org.hamcrest:hamcrest-library:1.3'
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 	/**
@@ -79,17 +89,17 @@ dependencies {
 	 */
 
 	// Espresso core
-	androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso_version",{
+	api("com.android.support.test.espresso:espresso-core:$espresso_version",{
 		exclude group: 'com.android.support', module: 'support-annotations'
 	})
 	// Espresso-contrib for DatePicker, RecyclerView, Drawer actions, Accessibility checks, CountingIdlingResource
-	androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$espresso_version",{
+	api("com.android.support.test.espresso:espresso-contrib:$espresso_version",{
 		exclude group: 'com.android.support', module: 'support-annotations'
 	})
-	androidTestImplementation("com.android.support.test.espresso:espresso-intents:$espresso_version",{
+	api("com.android.support.test.espresso:espresso-intents:$espresso_version",{
 		exclude group: 'com.android.support', module: 'support-annotations'
 	})
-	androidTestImplementation("com.android.support:support-annotations:$android_support_version",{
+	api("com.android.support:support-annotations:$android_support_version",{
 		exclude group: 'com.android.support', module: 'support-annotations'
 	})
 }
@@ -99,3 +109,4 @@ repositories {
 	}
 	mavenCentral()
 }
+

@@ -17,7 +17,7 @@ jacoco {
 	reportsDir = file("$buildDir/reports")
 }
 
-task jacocoTestReport(type: JacocoReport, dependsOn: "test${jacocoEnv.capitalize()}${jacocoBuildType.capitalize()}UnitTest") {
+task jacocoUnitTestReport(type: JacocoReport, dependsOn: "test${jacocoEnv.capitalize()}${jacocoBuildType.capitalize()}UnitTest") {
 
 // TODO This hack is required for older buildTools version
 //	doFirst {
@@ -31,7 +31,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: "test${jacocoEnv.capitalize
 //	}
 
 	group = "Reporting"
-	description = "Generate Jacoco coverage reports for Debug build"
+	description = "Generate Jacoco coverage reports for unit test"
 
 	reports {
 		xml.enabled = true
@@ -55,3 +55,32 @@ task jacocoTestReport(type: JacocoReport, dependsOn: "test${jacocoEnv.capitalize
 	println(">>>$buildDir/../../jacoco/jacocoAllModules.exec")
 	executionData = files("$buildDir/../../jacoco/jacocoAllModules.exec")
 }
+
+//TODO rework this task to work for UI testing with coverage
+//task jacocoUiTestReport(type: JacocoReport, dependsOn: "create${jacocoEnv.capitalize()}${jacocoBuildType.capitalize()}CoverageReport") {
+//
+//	group = "Reporting"
+//	description = "Generate Jacoco coverage reports for ui test"
+//
+//	reports {
+//		xml.enabled = true
+//		html.enabled = true
+//	}
+//
+//	// generated classes
+//	classDirectories = fileTree(
+//			dir: "$buildDir/intermediates/classes/${jacocoEnv}/${jacocoBuildType}",
+//			excludes: project.excludeFromAnalysis
+//	) + fileTree(
+//			dir: "$buildDir/tmp/kotlin-classes/${jacocoEnv}${jacocoBuildType.capitalize()}",
+//			excludes: project.excludeFromAnalysis
+//	)
+//
+//	// sources
+//	sourceDirectories = files([
+//			android.sourceSets.main.java.srcDirs,
+//			"src/main/java", "src/${jacocoBuildType}/java", "src/server/java"
+//	])
+//	println(">>>$buildDir/../../jacoco/jacocoAllModules.ec")
+//	executionData = files("$buildDir/../../jacoco/jacocoAllModules.ec")
+//}

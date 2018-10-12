@@ -40,9 +40,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //TODO UI? testCoverageEnabled = true
         }
         debug {
             minifyEnabled false
+            //TODO UI? testCoverageEnabled = true
         }
     }
     dataBinding {
@@ -93,6 +95,7 @@ android {
 dependencies {
 
     implementation project(':module-core')
+    implementation project(':module-test-utils')
     implementation project(':module-text-recognition')
     implementation project(':module-face-detection')
 

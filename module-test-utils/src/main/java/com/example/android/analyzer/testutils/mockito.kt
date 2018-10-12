@@ -1,5 +1,6 @@
 package com.example.android.analyzer.testutils
 
+import org.mockito.ArgumentCaptor
 import org.mockito.Mockito
 
 /**
@@ -14,3 +15,10 @@ fun <T> kotlinAny(): T {
 
 @Suppress("UNCHECKED_CAST")
 fun <T> uninitialized(): T = null as T
+
+/**
+ * a kotlin friendly mock that handles generics
+ */
+inline fun <reified T> mock(): T = Mockito.mock(T::class.java)
+
+inline fun <reified T> argumentCaptor(): ArgumentCaptor<T> = ArgumentCaptor.forClass(T::class.java)

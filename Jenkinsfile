@@ -111,10 +111,10 @@ pipeline {
 					deleteDir()
 				}
 				echo "Code coverage computation for Env=${params.environment} and BuildType=${params.build_type} ..."
-				sh "./gradlew module-core:jacocoTestReport -PjacocoEnv=${params.environment} -PjacocoBuildType=${params.build_type}"
-				sh "./gradlew module-face-detection:jacocoTestReport -PjacocoEnv=${params.environment} -PjacocoBuildType=${params.build_type}"
-				sh "./gradlew module-text-recognition:jacocoTestReport -PjacocoEnv=${params.environment} -PjacocoBuildType=${params.build_type}"
-				sh "./gradlew mobile:jacocoTestReport -PjacocoEnv=${params.environment} -PjacocoBuildType=${params.build_type}"
+				sh "./gradlew module-core:jacocoUnitTestReport -PjacocoEnv=${params.environment} -PjacocoBuildType=${params.build_type}"
+				sh "./gradlew module-face-detection:jacocoUnitTestReport -PjacocoEnv=${params.environment} -PjacocoBuildType=${params.build_type}"
+				sh "./gradlew module-text-recognition:jacocoUnitTestReport -PjacocoEnv=${params.environment} -PjacocoBuildType=${params.build_type}"
+				sh "./gradlew mobile:jacocoUnitTestReport -PjacocoEnv=${params.environment} -PjacocoBuildType=${params.build_type}"
 
 				//It's required to repeat all patterns which are defined in jacoco.gradle for analyzer. Plugin shows incorrect results otherwise.
 				jacoco(execPattern: '**/jacocoAllModules.exec',
